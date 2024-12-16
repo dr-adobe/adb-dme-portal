@@ -12,6 +12,8 @@
 
 import { setLibs, decorateArea } from './utils.js';
 
+console.log("Loading scripts");
+
 // Add project-wide style path here.
 const STYLES = '';
 
@@ -45,6 +47,8 @@ decorateArea();
 
 const miloLibs = setLibs(LIBS);
 
+console.group("Loading styles and page");
+
 (function loadStyles() {
   const paths = [`${miloLibs}/styles/styles.css`];
   if (STYLES) { paths.push(STYLES); }
@@ -62,3 +66,5 @@ const miloLibs = setLibs(LIBS);
   console.log(config);
   await loadArea();
 }());
+
+console.groupEnd();
